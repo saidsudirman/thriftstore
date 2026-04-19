@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
@@ -7,7 +8,8 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-indigo-500 to-purple-600 min-h-screen flex items-center justify-center">
+
+<body class="bg-gradient-to-r from-pink-300 to-rose-400 min-h-screen flex items-center justify-center">
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
 
@@ -56,7 +58,7 @@
             </div>
 
             <button type="submit"
-                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 rounded-lg transition">
+                class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg w-full transition">
                 Register
             </button>
         </form>
@@ -71,4 +73,5 @@
     </div>
 
 </body>
+
 </html>

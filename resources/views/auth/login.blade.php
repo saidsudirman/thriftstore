@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -7,7 +8,8 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex items-center justify-center">
+
+<body class="bg-gradient-to-r from-pink-300 to-rose-300 min-h-screen flex items-center justify-center">
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
 
@@ -46,7 +48,7 @@
 
             <div class="flex justify-between items-center">
                 <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg w-full transition">
+                    class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg w-full transition">
                     Login
                 </button>
             </div>
@@ -67,4 +69,5 @@
     </div>
 
 </body>
+
 </html>
