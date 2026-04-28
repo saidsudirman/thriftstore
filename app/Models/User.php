@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
+    use Notifiable;
+
     protected $fillable = [
         'username',
         'email',
@@ -16,6 +20,7 @@ class User extends Authenticatable
         'address',
         'phone',
         'email_verified_at',
+        'verify_token',
     ];
 
     protected $hidden = [
