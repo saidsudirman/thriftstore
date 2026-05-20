@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -124,23 +125,34 @@ class AuthController extends Controller
         session([
             'user_id' => $user->id,
             'username' => $user->username,
+            'email' => $user->email,
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Login berhasil');
     }
 
-    public function logout()
+     public function logout(Request $request)
     {
-        $user = User::find(session('user_id'));
-
-        if ($user) {
-            $user->update([
-                'status_login' => false
-            ]);
+        // Update status_login ke false jika menggunakan session manual
+        if (session('user_id')) {
+            $user = User::find(session('user_id'));
+            if ($user) {
+                $user->update(['status_login' => false]);
+            }
         }
 
+        // Hapus semua session
         session()->flush();
 
-        return redirect('/login')->with('success', 'Logout berhasil');
+        // Hapus session Auth jika menggunakan Auth facade
+        Auth::logout();
+
+        // Invalidate dan regenerate session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Redirect ke halaman login
+        return redirect('/login')->with('success', 'Anda berhasil logout');
     }
+
 }
